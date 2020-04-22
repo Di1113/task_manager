@@ -1,6 +1,7 @@
 import time
 
 # todo 
+# 0. write out completed log task result to a local json file
 # 1. change task_stack to dictionary, so two "break"s enter in a row could be prohibited by looking up stack entries 
 # 2. add comments 
 # 3. pretty print completed tasks, for eg convert time interval to readable time format 
@@ -50,7 +51,7 @@ def task_compute_worktime(task):
 
 	# convert to readable string 
 	total_time = time.gmtime(total_time)
-	total_time = time.strftime("%M mimutes %S seconds", total_time)
+	total_time = time.strftime("%H hours %M mimutes %S seconds", total_time)
 	return total_time 
 
 def task_update_time(task):
