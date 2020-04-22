@@ -4,7 +4,6 @@ import os
 from datetime import date 
 
 # todo 
-# 0. write out completed log task result to a local json file
 # 1. change task_stack to dictionary, so two "break"s enter in a row could be prohibited by looking up stack entries 
 # 2. add comments 
 # 3. pretty print completed tasks, for eg convert time interval to readable time format 
