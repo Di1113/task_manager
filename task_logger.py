@@ -1,4 +1,7 @@
 import time
+import json 
+import os
+from datetime import date 
 
 # todo 
 # 0. write out completed log task result to a local json file
@@ -135,7 +138,20 @@ while(True):
 		# display time spent 
 		print("today completed: ")
 		print(comp_task_queue)
+
 		break; 
+
+log_path = './task_logs' 
+os.makedirs(log_path,exist_ok=True) # create directory if needed 
+filesuffix = 2  
+log_name = ('%s-tasks.json' % (str(date.today())))
+
+while os.path.exists(os.path.join(log_path, log_name)):
+	log_name = ('%s-tasks(%s).json' % (str(date.today()), str(filesuffix)))
+
+ff = open(os.path.join(log_path,log_name),'w+')
+with ff:
+    json.dump(comp_task_queue, ff, indent=4, sort_keys=True)
 
 
 #       start 
