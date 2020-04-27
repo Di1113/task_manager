@@ -4,15 +4,19 @@ import os
 from datetime import date 
 
 # todo 
-# 1. change task_stack to dictionary, so two "break"s enter in a row could be prohibited by looking up stack entries 
+# 1. change task_stack to dictionary, so two "break"s enter in a row could be prohibited by looking up stack entries [no need]
 # 2. add comments 
-# 3. pretty print completed tasks, for eg convert time interval to readable time format 
+# 3. pretty print completed tasks, for eg convert time interval to readable time format [done]
 # 4. log bugs and learnings 
 # 5. add sort to print completed tasks from longest time spent to shortes 
 # 6. add a function to manually log tasks 
 # 7. add visualization for time spent 
-# 8. output task log to a text file 
+# 8. output task log to a text file [done]
 # 9. improve HCI so could share to a friend to do user test 
+# 10. add onhold task state 
+# 11. add function to swap between onhold tasks 
+# 12. sum up all task time 
+# 13. add log description(summary)
 
 time_past_total = 0 
 comp_task_queue = {}
@@ -142,10 +146,10 @@ while(True):
 
 log_path = './task_logs' 
 os.makedirs(log_path,exist_ok=True) # create directory if needed 
-filesuffix = 2  
+filesuffix = 1  
 log_name = ('%s-tasks.json' % (str(date.today())))
 
-while os.path.exists(os.path.join(log_path, log_name)):
+if os.path.exists(os.path.join(log_path, log_name)):
 	log_name = ('%s-tasks(%s).json' % (str(date.today()), str(filesuffix)))
 
 ff = open(os.path.join(log_path,log_name),'w+')
